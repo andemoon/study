@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+    <!--内部样式表-->
+	<style type="text/css">
+	.div1{
+		margin:300px auto;
+		width:300px;
+		height: auto;
+	}
+	.button1{
+        width: 50px;		
+        height: 30px;
+		opacity: 30;
+		border: 3;
+		margin-left: 20px;
+	}
+	.input1{
+        width: 200px;
+        height: 25px;
+		box-shadow:0 0 8px #1c1b1d;
+		border:2;
+	}
+	span{
+		font-size: 50px;
+	}
+	.oi1{
+		margin-top: 30px;
+	}
+	.complete{
+		color: rgb(0, 0, 0);
+	}
+    .button2{
+        width: 20px;
+        height:20px ;
+        color: #1c1b1d;
+    }
+    .button3{
+        width:50px;
+        height: 50px;
+        position: fixed;
+    }
+	</style>
+</head>
+<body>
+
+	<div id="list" class="div1">
+	<span>TodolistDemo</span>
+        <!--添加文本域，-->
+        
+		<input class="input1" type="text" v-model="inputVaule" v-on:keyup.enter="add"/>
+        <!--添加按钮-->
+        <button v-on:click="add" class="button1">添加</button>
+        <!--删除全部按钮-->
+        <button v-on:click="removeallTodo" class="button3">删除全部</button>
+        <!--添加列表-->
+		<ol >
+			<li v-for="item in items" >
+			<div class="ol1">
+                <!--内容在这-->
+				<label  v-bind:class="{ complete:item.completed }">{{item.text}}</label>
+                <!--删除按钮-->
+				<button v-on:click="removeTodo(item)" class="button2">x</button></li>
+			</div>
+		</ol>
+        
+	</div>
+	
+	<script src="./vue.js"></script>
+	<script src="vue-resource.js"></script>
+    <!--逻辑语块在这-->
+	<script src="vuetest.js"></script>
+
+</body>
+</html>
